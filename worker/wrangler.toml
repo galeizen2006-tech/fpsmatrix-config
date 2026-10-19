@@ -1,0 +1,30 @@
+# FPSMatrix Config API - Cloudflare Workers
+name = "fpsmatrix-config-api"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# Busca cambios en GitHub cada 5 minutos.
+[triggers]
+crons = ["*/5 * * * *"]
+
+# Variables públicas (no son secretas).
+[vars]
+GITHUB_REPO = "galeizen2006-tech/fpsmatrix-config"
+GITHUB_BRANCH = "main"
+GITHUB_CONFIG_PATH = "config.json"
+REFRESH_INTERVAL_SECONDS = "300"
+ALLOWED_URL_HOSTS = "github.com,raw.githubusercontent.com,fpsmatrix.com,www.fpsmatrix.com"
+
+# Copia de la última configuración válida (para cuando GitHub falla).
+# Crear con:  npx wrangler kv namespace create CONFIG_KV
+# y pegar acá el id que devuelve (reemplazando el texto de abajo).
+[[kv_namespaces]]
+binding = "CONFIG_KV"
+id = "PEGAR_ACA_EL_ID_DEL_KV"
+
+# Dominio: descomentar cuando fpsmatrix.com esté en esta cuenta de Cloudflare.
+# routes = [ { pattern = "config.fpsmatrix.com", custom_domain = true } ]
+
+# SECRETOS (nunca en este archivo):
+#   npx wrangler secret put ADMIN_API_KEY             -> clave de /admin/*
+#   npx wrangler secret put FPSMATRIX_GITHUB_TOKEN    -> solo si el repo pasa a privado

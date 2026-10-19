@@ -1,0 +1,15 @@
+{
+  "name": "fpsmatrix-config-api-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/worker.test.mjs",
+    "sync-config": "node -e \"const fs=require('fs');const d=JSON.parse(fs.readFileSync('../config.json','utf8'));fs.writeFileSync('src/default-config.js','// Configuración de fábrica: se usa si todavía no se pudo leer GitHub ni hay copia en KV.\\n// Es una copia de ../config.json (regenerar con: npm run sync-config).\\nexport default '+JSON.stringify(d,null,2)+';\\n')\""
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

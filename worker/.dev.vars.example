@@ -1,0 +1,3 @@
+# Copiar como .dev.vars para probar local con "npm run dev". NUNCA subir .dev.vars.
+ADMIN_API_KEY=pone-aca-una-clave-larga-y-aleatoria
+# FPSMATRIX_GITHUB_TOKEN=   (solo si el repo es privado)
