@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "config_version": 1,
-  "updated_at": "2026-10-19T00:00:00Z",
+  "config_version": 2,
+  "updated_at": "2026-10-19T20:15:00Z",
   "app": {
     "latest_version": "1.9.5",
     "min_supported_version": "1.9.0",
@@ -12,7 +12,10 @@
     }
   },
   "compatibility": {
-    "os": ["windows-10", "windows-11"],
+    "os": [
+      "windows-10",
+      "windows-11"
+    ],
     "min_windows_build": 19041,
     "blocked_app_versions": []
   },
